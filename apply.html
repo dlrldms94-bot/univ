@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEP-UP 탐방캠프 3기 지원하기</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/apply.css">
+</head>
+
+<body>
+    <div class="apply-wrap">
+        <header class="apply-header">
+            <a href="index2.html" class="back-link">메인으로 돌아가기</a>
+            <h1>2026 장애대학생 스텝업 탐방캠프 3기 지원하기</h1>
+            <p>총 6단계 지원 폼입니다. 모든 필수 항목을 작성해주세요.</p>
+        </header>
+
+        <section class="form-shell">
+            <div class="step-indicator">
+                <div class="step-progress">
+                    <div class="step-progress-bar" id="stepProgressBar"></div>
+                </div>
+                <p><span id="currentStepLabel">1</span> / 6 단계</p>
+            </div>
+
+            <form id="applyForm">
+                <div class="form-step active" data-step="1">
+                    <h2>1. 개인정보 수집·이용 동의</h2>
+                    <div class="field consent-images">
+                        <p class="field-title">개인정보 수집·이용 및 제공 활용 동의서</p>
+                        <div class="consent-grid">
+                            <div class="consent-card">
+                                <p>동의서 이미지 1</p>
+                                <img src="img2/apply-1.jpg" alt="개인정보 동의서 1">
+                            </div>
+                            <div class="consent-card">
+                                <p>동의서 이미지 2</p>
+                                <img src="img2/apply-2.jpg" alt="개인정보 동의서 2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="check-row">
+                        <label>
+                            <input type="checkbox" id="privacyAgree" name="privacyAgree" required>
+                            본인은 개인정보 수집·이용 처리 내용을 충분히 안내받았음을 확인합니다. (동의)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="2">
+                    <h2>2. 기본 정보 입력</h2>
+                    <div class="grid-2">
+                        <div class="field">
+                            <p class="field-title">보건복지법상 장애인 등록 여부 <em>*</em></p>
+                            <label><input type="radio" name="disabilityRegistered" value="예" required> 예</label>
+                            <label><input type="radio" name="disabilityRegistered" value="아니오"> 아니오</label>
+                        </div>
+                        <div class="field">
+                            <p class="field-title">대학 재학 및 졸업 여부 <em>*</em></p>
+                            <label><input type="radio" name="universityStatus" value="예" required> 예</label>
+                            <label><input type="radio" name="universityStatus" value="아니오"> 아니오</label>
+                        </div>
+                    </div>
+                    <div class="grid-2">
+                        <div class="field">
+                            <label for="name">성명 <em>*</em></label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="field">
+                            <label for="rrn">주민등록번호 <em>*</em></label>
+                            <input type="text" id="rrn" name="rrn" placeholder="예: 000000-0000000" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="address">거주지 주소 <em>*</em></label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+                    <div class="grid-2">
+                        <div class="field">
+                            <label for="phone">연락처 <em>*</em></label>
+                            <input type="tel" id="phone" name="phone" placeholder="예: 010-0000-0000" required>
+                        </div>
+                        <div class="field">
+                            <label for="email">이메일 주소 <em>*</em></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <p class="field-title">성별 <em>*</em></p>
+                        <label><input type="radio" name="gender" value="남" required> 남</label>
+                        <label><input type="radio" name="gender" value="여"> 여</label>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="3">
+                    <h2>3. 장애 관련 정보</h2>
+                    <div class="field">
+                        <p class="field-title">장애유형 <em>*</em></p>
+                        <div class="check-grid">
+                            <label><input type="checkbox" name="disabilityType" value="지체장애"> 지체장애</label>
+                            <label><input type="checkbox" name="disabilityType" value="뇌병변장애"> 뇌병변장애</label>
+                            <label><input type="checkbox" name="disabilityType" value="시각장애"> 시각장애</label>
+                            <label><input type="checkbox" name="disabilityType" value="청각장애"> 청각장애</label>
+                            <label><input type="checkbox" name="disabilityType" value="언어장애"> 언어장애</label>
+                            <label><input type="checkbox" name="disabilityType" value="지적장애"> 지적장애</label>
+                            <label><input type="checkbox" name="disabilityType" value="자폐성장애"> 자폐성장애</label>
+                            <label><input type="checkbox" name="disabilityType" value="정신장애"> 정신장애</label>
+                            <label><input type="checkbox" name="disabilityType" value="신장장애"> 신장장애</label>
+                            <label><input type="checkbox" name="disabilityType" value="심장장애"> 심장장애</label>
+                            <label><input type="checkbox" name="disabilityType" value="호흡기장애"> 호흡기장애</label>
+                            <label><input type="checkbox" name="disabilityType" value="간장애"> 간장애</label>
+                            <label><input type="checkbox" name="disabilityType" value="안면장애"> 안면장애</label>
+                            <label><input type="checkbox" name="disabilityType" value="장루/요루장애"> 장루/요루장애</label>
+                            <label><input type="checkbox" name="disabilityType" value="뇌전증장애"> 뇌전증장애</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <p class="field-title">장애 정도 <em>*</em></p>
+                        <label><input type="radio" name="disabilityLevel" value="심하지 않은(경증)" required> 심하지 않은(경증)</label>
+                        <label><input type="radio" name="disabilityLevel" value="심한(중증)"> 심한(중증)</label>
+                    </div>
+                    <div class="field">
+                        <p class="field-title">보조기기 <em>*</em></p>
+                        <div class="check-grid">
+                            <label><input type="checkbox" name="assistiveDevice" value="수동휠체어"> 수동휠체어</label>
+                            <label><input type="checkbox" name="assistiveDevice" value="전동휠체어"> 전동휠체어</label>
+                            <label><input type="checkbox" name="assistiveDevice" value="클러치"> 클러치</label>
+                            <label><input type="checkbox" name="assistiveDevice" value="보청기"> 보청기</label>
+                            <label><input type="checkbox" name="assistiveDevice" value="인공와우"> 인공와우</label>
+                            <label><input type="checkbox" name="assistiveDevice" value="기타"> 기타</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="4">
+                    <h2>4. 학력 사항</h2>
+                    <div class="grid-2">
+                        <div class="field">
+                            <label for="schoolName">학교명 <em>*</em></label>
+                            <input type="text" id="schoolName" name="schoolName" required>
+                        </div>
+                        <div class="field">
+                            <label for="department">학과(부) <em>*</em></label>
+                            <input type="text" id="department" name="department" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <p class="field-title">재학상태 <em>*</em></p>
+                        <div class="check-grid">
+                            <label><input type="checkbox" name="enrollmentStatus" value="재학"> 재학</label>
+                            <label><input type="checkbox" name="enrollmentStatus" value="휴학"> 휴학</label>
+                            <label><input type="checkbox" name="enrollmentStatus" value="졸업"> 졸업</label>
+                            <label><input type="checkbox" name="enrollmentStatus" value="졸업예정"> 졸업예정</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="5">
+                    <h2>5. 기업 탐방 선호도</h2>
+                    <div class="notice-box">
+                        <p>공지</p>
+                        <ul>
+                            <li>● 체험형 프로그램(필수)</li>
+                            <li>- 참여자 1인당 최대 2개 기관 및 기업 탐방 가능 (각 1일 진행)</li>
+                            <li>● 인턴형 프로그램(선택)</li>
+                            <li>- 참여자 1인당 1개 근무처 근무 가능 (2개월 과정)</li>
+                            <li>- 2개월 근로계약 체결 및 4대 보험 가입</li>
+                            <li>- 참여를 희망하지 않을 경우 ‘선택 안함’ 항목 체크 필수</li>
+                        </ul>
+                    </div>
+
+                    <div id="experienceSection" class="type-section">
+                        <h3>체험형 기업 (기업 1곳 선택 필수)</h3>
+                        <div class="schedule-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>기업명</th>
+                                        <th>일정</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>(서울) 한국무역보험공사</td><td>7/8 13:30</td></tr>
+                                    <tr><td>(서울) (재)우체국물류지원단</td><td>7/9 14:00</td></tr>
+                                    <tr><td>(경기) 한화비전</td><td>7/10 14:00</td></tr>
+                                    <tr><td>(울산) 한국산업인력공단</td><td>7/14 14:00</td></tr>
+                                    <tr><td>(서울) 에르메스코리아(유)</td><td>7/15 09:00</td></tr>
+                                    <tr><td>(대전) 한국가스기술공사</td><td>7/16 14:00</td></tr>
+                                    <tr><td>(경남) 한국산업기술시험원</td><td>7/20 14:00</td></tr>
+                                    <tr><td>(전북) 한국가스기술공사</td><td>7/21 14:00</td></tr>
+                                    <tr><td>(대전) 한국특허전략개발원</td><td>7/23 14:00</td></tr>
+                                    <tr><td>(인천) 인천국제공항공사</td><td>7/24 14:00</td></tr>
+                                    <tr><td>(서울) 한국수출입은행</td><td>8/4 09:30</td></tr>
+                                    <tr><td>(서울) KB국민은행</td><td>7~8월 중 (일자 미정)</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="grid-3">
+                            <div class="field">
+                                <label for="expFirst">1순위 <em>*</em></label>
+                                <select id="expFirst" name="expFirst">
+                                    <option value="">선택하세요</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label for="expSecond">2순위</label>
+                                <select id="expSecond" name="expSecond">
+                                    <option value="">선택하세요</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label for="expThird">3순위</label>
+                                <select id="expThird" name="expThird">
+                                    <option value="">선택하세요</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="internSection" class="type-section">
+                        <h3>인턴형 기업 (인턴형 기업 일정: 7/1 ~ 8/31)</h3>
+                        <ul class="intern-list">
+                            <li>(서울) 국립중앙의료원</li>
+                            <li>(서울) 한국수출입은행</li>
+                            <li>(서울) (재)우체국물류지원단</li>
+                            <li>(서울) KB국민은행</li>
+                            <li>(광주) 국립아시아문화전당재단</li>
+                        </ul>
+                        <div class="grid-2">
+                            <div class="field">
+                                <label for="internFirst">1순위 <em>*</em></label>
+                                <select id="internFirst" name="internFirst">
+                                    <option value="">선택하세요</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label for="internSecond">2순위</label>
+                                <select id="internSecond" name="internSecond">
+                                    <option value="">선택하세요</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>
+                                <input type="checkbox" id="internNoSelect" name="internNoSelect" value="선택 안함">
+                                선택 안함
+                            </label>
+                        </div>
+                    </div>
+                    <div class="field" id="internPreferenceField">
+                        <p class="field-title">희망 기업 탐방지 관련 <em>*</em></p>
+                        <div class="check-grid">
+                            <label><input type="checkbox" name="internPreference" value="반드시 1~3순위 내 기업 탐방 희망"> 반드시 1~3순위 내 기업 탐방 희망</label>
+                            <label><input type="checkbox" name="internPreference" value="탐방 기업 무관"> 탐방 기업 무관</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="6">
+                    <h2>6. 서술형 요청사항 입력</h2>
+                    <div class="field">
+                        <label for="essay1">1) 『2026 장애대학생 스텝업 탐방캠프』 에 지원한 동기를 작성해주시고, ‘스텝업 탐방캠프’를 통해 얻고자 하는 바와 포부를 함께 기입해주세요. <em>*</em></label>
+                        <textarea id="essay1" name="essay1" rows="6" required></textarea>
+                    </div>
+                    <div class="field">
+                        <label for="essay2">2) 대내·외 활동 중 팀워크를 발휘하여 공동의 목표를 달성한 경험을 기술해 주시고, 본인의 장단점이 팀 활동에 어떤 영향을 미쳤는지, 자신의 역할 및 기여도를 포함하여 설명해 주시기 바랍니다. <em>*</em></label>
+                        <textarea id="essay2" name="essay2" rows="6" required></textarea>
+                    </div>
+                    <div class="field">
+                        <label for="essay3">3) 희망 기업과 알고 싶은 정보 및 이유스텝업 탐방캠프’를 통해 방문을 희망하는 기업을 기입해 주시고, 해당 기업을 통해 알고 싶은 정보와 그 이유를 기입해 주세요. <em>*</em></label>
+                        <textarea id="essay3" name="essay3" rows="6" required></textarea>
+                    </div>
+                </div>
+
+                <p class="error-message" id="errorMessage"></p>
+
+                <div class="step-actions">
+                    <button type="button" id="prevBtn" class="secondary-btn">이전</button>
+                    <button type="button" id="nextBtn">다음</button>
+                    <button type="submit" id="submitBtn">제출하기</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <script>
+        const TOTAL_STEPS = 6;
+        const form = document.getElementById("applyForm");
+        const steps = Array.from(document.querySelectorAll(".form-step"));
+        const currentStepLabel = document.getElementById("currentStepLabel");
+        const progressBar = document.getElementById("stepProgressBar");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+        const submitBtn = document.getElementById("submitBtn");
+        const errorMessage = document.getElementById("errorMessage");
+        const experienceSection = document.getElementById("experienceSection");
+        const internSection = document.getElementById("internSection");
+        const internPreferenceField = document.getElementById("internPreferenceField");
+        const internNoSelect = document.getElementById("internNoSelect");
+        const internFirst = document.getElementById("internFirst");
+        const internSecond = document.getElementById("internSecond");
+        let currentStep = 1;
+
+        const experienceCompanies = [
+            "(서울) 한국무역보험공사",
+            "(서울) (재)우체국물류지원단",
+            "(경기) 한화비전",
+            "(울산) 한국산업인력공단",
+            "(서울) 에르메스코리아(유)",
+            "(대전) 한국가스기술공사",
+            "(경남) 한국산업기술시험원",
+            "(전북) 한국가스기술공사",
+            "(대전) 한국특허전략개발원",
+            "(인천) 인천국제공항공사",
+            "(서울) 한국수출입은행",
+            "(서울) KB국민은행"
+        ];
+
+        const internCompanies = [
+            "(서울) 국립중앙의료원",
+            "(서울) 한국수출입은행",
+            "(서울) (재)우체국물류지원단",
+            "(서울) KB국민은행",
+            "(광주) 국립아시아문화전당재단"
+        ];
+
+        function fillSelectOptions(selectId, options) {
+            const select = document.getElementById(selectId);
+            options.forEach(company => {
+                const option = document.createElement("option");
+                option.value = company;
+                option.textContent = company;
+                select.appendChild(option);
+            });
+        }
+
+        fillSelectOptions("expFirst", experienceCompanies);
+        fillSelectOptions("expSecond", experienceCompanies);
+        fillSelectOptions("expThird", experienceCompanies);
+        fillSelectOptions("internFirst", internCompanies);
+        fillSelectOptions("internSecond", internCompanies);
+
+        function getCheckedValues(name) {
+            return Array.from(document.querySelectorAll("input[name='" + name + "']:checked")).map(input => input.value);
+        }
+
+        function updateInternPreferenceVisibility() {
+            internPreferenceField.style.display = "block";
+        }
+
+        function updateTypeSection() {
+            experienceSection.style.display = "block";
+            internSection.style.display = "block";
+            internFirst.disabled = internNoSelect.checked;
+            internSecond.disabled = internNoSelect.checked;
+            if (internNoSelect.checked) {
+                internFirst.value = "";
+                internSecond.value = "";
+            }
+            updateInternPreferenceVisibility();
+        }
+
+        function updateStepUI() {
+            steps.forEach(step => step.classList.remove("active"));
+            steps[currentStep - 1].classList.add("active");
+            currentStepLabel.textContent = String(currentStep);
+            progressBar.style.width = String((currentStep / TOTAL_STEPS) * 100) + "%";
+
+            prevBtn.style.display = currentStep === 1 ? "none" : "inline-flex";
+            nextBtn.style.display = currentStep === TOTAL_STEPS ? "none" : "inline-flex";
+            submitBtn.style.display = currentStep === TOTAL_STEPS ? "inline-flex" : "none";
+            errorMessage.textContent = "";
+        }
+
+        function validateCurrentStep(stepNumber) {
+            if (stepNumber === 1) {
+                const agree = document.getElementById("privacyAgree").checked;
+                if (!agree) {
+                    return "개인정보 수집·이용 동의 체크는 필수입니다.";
+                }
+            }
+
+            if (stepNumber === 2) {
+                const requiredIds = ["name", "rrn", "address", "phone", "email"];
+                const invalidId = requiredIds.find(id => !document.getElementById(id).value.trim());
+                if (invalidId) {
+                    return "기본 정보의 필수 항목을 모두 입력해주세요.";
+                }
+                const radios = ["disabilityRegistered", "universityStatus", "gender"];
+                const missingRadio = radios.find(name => !document.querySelector("input[name='" + name + "']:checked"));
+                if (missingRadio) {
+                    return "기본 정보의 선택 항목을 모두 체크해주세요.";
+                }
+            }
+
+            if (stepNumber === 3) {
+                if (getCheckedValues("disabilityType").length === 0) {
+                    return "장애유형을 1개 이상 선택해주세요.";
+                }
+                if (!document.querySelector("input[name='disabilityLevel']:checked")) {
+                    return "장애 정도를 선택해주세요.";
+                }
+                if (getCheckedValues("assistiveDevice").length === 0) {
+                    return "보조기기를 1개 이상 선택해주세요.";
+                }
+            }
+
+            if (stepNumber === 4) {
+                const schoolName = document.getElementById("schoolName").value.trim();
+                const department = document.getElementById("department").value.trim();
+                if (!schoolName || !department) {
+                    return "학교명과 학과(부)를 입력해주세요.";
+                }
+                if (getCheckedValues("enrollmentStatus").length === 0) {
+                    return "재학상태를 1개 이상 선택해주세요.";
+                }
+            }
+
+            if (stepNumber === 5) {
+                const expFirst = document.getElementById("expFirst").value;
+                const expSecond = document.getElementById("expSecond").value;
+                const expThird = document.getElementById("expThird").value;
+                if (!expFirst) {
+                    return "체험형 1순위 기업을 선택해주세요.";
+                }
+                const expPicked = [expFirst, expSecond, expThird].filter(Boolean);
+                if (new Set(expPicked).size !== expPicked.length) {
+                    return "체험형 희망 순위는 서로 다른 기업으로 선택해주세요.";
+                }
+
+                const internFirstValue = internFirst.value;
+                const internSecondValue = internSecond.value;
+                const noSelectChecked = internNoSelect.checked;
+                const internPreferenceCount = getCheckedValues("internPreference").length;
+                if (internPreferenceCount === 0) {
+                    return "희망 기업 탐방지 관련 항목은 필수입니다.";
+                }
+                if (internPreferenceCount > 1) {
+                    return "희망 기업 탐방지 관련 항목은 1개만 선택해주세요.";
+                }
+
+                if (noSelectChecked) {
+                    if (internFirstValue || internSecondValue) {
+                        return "인턴형 미희망 시 기업 순위 선택은 비워주세요.";
+                    }
+                } else {
+                    if (!internFirstValue) {
+                        return "인턴형 참가 희망 시 1순위 기업을 선택해주세요.";
+                    }
+                    const picked = [internFirstValue, internSecondValue].filter(Boolean);
+                    if (new Set(picked).size !== picked.length) {
+                        return "인턴형 희망 순위는 서로 다른 기업으로 선택해주세요.";
+                    }
+                }
+            }
+
+            if (stepNumber === 6) {
+                const essays = ["essay1", "essay2", "essay3"];
+                const missingEssay = essays.find(id => !document.getElementById(id).value.trim());
+                if (missingEssay) {
+                    return "서술형 문항 3개를 모두 작성해주세요.";
+                }
+            }
+
+            return "";
+        }
+
+        function buildSubmissionData() {
+            const programType = internNoSelect.checked ? "체험형" : "체험형, 인턴형";
+
+            return {
+                제출일시: new Date().toLocaleString("ko-KR"),
+                개인정보동의: document.getElementById("privacyAgree").checked ? "동의" : "미동의",
+                장애인등록여부: document.querySelector("input[name='disabilityRegistered']:checked")?.value || "",
+                대학재학졸업여부: document.querySelector("input[name='universityStatus']:checked")?.value || "",
+                성명: document.getElementById("name").value.trim(),
+                주민등록번호: document.getElementById("rrn").value.trim(),
+                거주지주소: document.getElementById("address").value.trim(),
+                연락처: document.getElementById("phone").value.trim(),
+                이메일: document.getElementById("email").value.trim(),
+                성별: document.querySelector("input[name='gender']:checked")?.value || "",
+                장애유형: getCheckedValues("disabilityType").join(", "),
+                장애정도: document.querySelector("input[name='disabilityLevel']:checked")?.value || "",
+                보조기기: getCheckedValues("assistiveDevice").join(", "),
+                학교명: document.getElementById("schoolName").value.trim(),
+                학과: document.getElementById("department").value.trim(),
+                재학상태: getCheckedValues("enrollmentStatus").join(", "),
+                지원유형: programType,
+                인턴형참가여부: internNoSelect.checked ? "미희망(선택 안함)" : "희망",
+                체험형1순위: document.getElementById("expFirst").value,
+                체험형2순위: document.getElementById("expSecond").value,
+                체험형3순위: document.getElementById("expThird").value,
+                인턴형1순위: document.getElementById("internFirst").value,
+                인턴형2순위: document.getElementById("internSecond").value,
+                희망탐방지관련: getCheckedValues("internPreference").join(", "),
+                서술1: document.getElementById("essay1").value.trim(),
+                서술2: document.getElementById("essay2").value.trim(),
+                서술3: document.getElementById("essay3").value.trim()
+            };
+        }
+
+        async function saveSubmissionToServer(payload) {
+            const response = await fetch("/api/applications", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                let message = "서버 저장 중 오류가 발생했습니다.";
+                try {
+                    const errorData = await response.json();
+                    if (errorData && errorData.message) {
+                        message = errorData.message;
+                    }
+                } catch (error) {
+                    // ignore parse error
+                }
+                throw new Error(message);
+            }
+        }
+
+        document.querySelectorAll("input[name='internPreference']").forEach(input => {
+            input.addEventListener("change", function () {
+                if (!this.checked) {
+                    return;
+                }
+                document.querySelectorAll("input[name='internPreference']").forEach(other => {
+                    if (other !== this) {
+                        other.checked = false;
+                    }
+                });
+            });
+        });
+
+        internNoSelect.addEventListener("change", function () {
+            if (this.checked) {
+                internFirst.value = "";
+                internSecond.value = "";
+            }
+            updateTypeSection();
+        });
+
+        [internFirst, internSecond].forEach(select => {
+            select.addEventListener("change", function () {
+                if (this.value) {
+                    internNoSelect.checked = false;
+                }
+                updateTypeSection();
+            });
+        });
+
+        prevBtn.addEventListener("click", function () {
+            if (currentStep > 1) {
+                currentStep -= 1;
+                updateStepUI();
+            }
+        });
+
+        nextBtn.addEventListener("click", function () {
+            const error = validateCurrentStep(currentStep);
+            if (error) {
+                errorMessage.textContent = error;
+                return;
+            }
+            if (currentStep < TOTAL_STEPS) {
+                currentStep += 1;
+                updateStepUI();
+            }
+        });
+
+        form.addEventListener("submit", async function (event) {
+            event.preventDefault();
+            const error = validateCurrentStep(currentStep);
+            if (error) {
+                errorMessage.textContent = error;
+                return;
+            }
+
+            try {
+                const submission = buildSubmissionData();
+                await saveSubmissionToServer(submission);
+                alert("제출완료되었습니다.");
+                form.reset();
+                currentStep = 1;
+                updateTypeSection();
+                updateStepUI();
+            } catch (submitError) {
+                errorMessage.textContent = submitError.message;
+            }
+        });
+
+        updateTypeSection();
+        updateStepUI();
+    </script>
+</body>
+
+</html>

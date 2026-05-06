@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta property="og:url" content="https://stepupkead.com/">
+    <meta property="og:title" content="STEP-UP 탐방캠프 3기">
+    <meta property="og:image" content="img2/meta.png">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <title>STEP-UP 탐방캠프 3기</title>
+</head>
+
+<body>
+    <header>
+        <div class="h-inner">
+            <div class="h-left">
+                <h1 class="logy_B"><a href="index2.html">STEP-UP 탐방캠프 3기</a></h1>
+            </div>
+            <div class="h-right">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <main>
+            <div class="container">
+                <div class="fix">
+                    <div class="register">
+                        <a href="apply.html" class="logy_B">지원하기</a>
+                    </div>
+
+                    <!-- pc 카카오톡 상담 버튼 -->
+                    <div class="kakaoChatPc">
+                        <a href="javascript:void kakaoChatStart()">
+                            <img src="img2/kakao.png">
+                        </a>
+                    </div>
+
+                    <!-- 모바일 카카오톡 상담 버튼 -->
+                    <div class="kakaoChatMob">
+                        <a href="javascript:void kakaoChatStart()">
+                            <img src="img2/kakao.png">
+                        </a>
+                    </div>
+
+                    <!-- 카카오톡 채널 스크립트 -->
+                    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+                    <script type='text/javascript'>
+                        Kakao.init('747b80328bbb0153c0224b083b311270'); // 사용할 앱의 JavaScript키를 입력해 주세요.
+                        function kakaoChatStart() {
+                            Kakao.Channel.chat({
+                                channelPublicId: '_xlivjX' // 카카오톡 채널 홈 URL에 명시된 ID를 입력합니다.(1단계에서 복사한 값)
+                            });
+                        }
+                    </script>
+                    <script>
+                        window.addEventListener('scroll', function () {
+                            const target = document.querySelector('footer');
+                            const box = document.querySelector('.fix');
+                            const targetPosition = target.getBoundingClientRect().top;
+                            const windowHeight = window.innerHeight;
+
+                            // 타겟이 화면 아래쪽 100px 이내에 도달했을 때
+                            if (targetPosition < windowHeight - 100) {
+                                box.classList.add('hide');
+                            } else {
+                                box.classList.remove('hide');
+                            }
+                        });
+                    </script>
+                </div>
+                <section class="sec01">
+                    <div class="sec-inner">
+                        <div class="sec-top">
+                            <h2 class="logy_B"><em>STEP-UP</em><br>
+                                탐방캠프 3기</h2>
+                        </div>
+                        <div class="sec-pc">
+                            <img src="img2/sec01_pc.png" alt="">
+                        </div>
+                        <div class="sec-mo">
+                            <img src="img2/sec01_mo.png" alt="">
+                        </div>
+                    </div>
+                </section>
+                <section class="sec02">
+                    <div class="sec-tit">
+                        <h2 class="logy_B">행사일정</h2>
+                    </div>
+                    <div class="sec-cont">
+                        <div class="cont-inner">
+                            <ul>
+                                <li>
+                                    <div class="cont-tit">
+                                        <p>• 모집 일정</p>
+                                    </div>
+                                    <div class="date">
+                                        <p>5. 8 (금) ~ 5. 25 (일)</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="cont-tit">
+                                        <p>• 온라인 면접 전형</p>
+                                    </div>
+                                    <div class="date">
+                                        <p>5. 27 (수) ~ 5. 29 (금)</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="cont-tit">
+                                        <p>• 온라인 오리엔테이션</p>
+                                    </div>
+                                    <div class="date">
+                                        <p>6. 8 (월)</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="cont-tit">
+                                        <p>• 개인별 맞춤 직업 탐색 컨설팅</p>
+                                    </div>
+                                    <div class="date">
+                                        <p>6. 9 (화) ~ 6. 19 (금)</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="cont-tit">
+                                        <p>• 취업역량강화캠프</p>
+                                    </div>
+                                    <div class="date">
+                                        <p>6. 25 (목) ~ 6. 26 (금)</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="cont-tit">
+                                        <p>• 기업탐방프로그램 (체험형)</p>
+                                    </div>
+                                    <div class="date">
+                                        <p>7월 ~ 8월</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="cont-tit">
+                                        <p>• 기업탐방프로그램 (인턴형)</p>
+                                    </div>
+                                    <div class="date">
+                                        <p>7. 1 (수) ~ 8. 31 (월)</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="cont-tit">
+                                        <p>• 콘텐츠 제작 교육 및 멘토링</p>
+                                    </div>
+                                    <div class="date">
+                                        <p>8. 5 (수) ~ 8. 11 (화)</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="cont-tit">
+                                        <p>• 수기공모전</p>
+                                    </div>
+                                    <div class="date">
+                                        <p>8. 3 (월) ~ 8. 13 (목)</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="cont-tit">
+                                        <p>• 성과공유회</p>
+                                    </div>
+                                    <div class="date">
+                                        <p>8. 28 (금)</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="sec03">
+                    <div class="sec-tit">
+                        <h2>프로그램</h2>
+                    </div>
+                    <div class="sec-cont">
+                        <div class="cont-inner">
+                            <ul class="folder-box">
+                                <li>
+                                    <div class="folder open-popup" data-popup="popup1">
+                                        <img src="img2/folder.png" alt="">
+                                    </div>
+                                    <p>개인별 맞춤 직업 탐색 컨설팅</p>
+                                    <div class="popup-overlay" id="popup1">
+                                        <div class="popup">
+                                            <span class="close-btn" id="closePopup">&times;</span>
+                                            <div class="popup-content">
+                                                <img src="img2/p-1.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="folder open-popup" data-popup="popup2">
+                                        <img src="img2/folder.png" alt="">
+                                    </div>
+                                    <p>1박 2일 취·캉·스 '취업캠프'</p>
+                                    <div class="popup-overlay" id="popup2">
+                                        <div class="popup">
+                                            <span class="close-btn" id="closePopup">&times;</span>
+                                            <div class="popup-content">
+                                                <img src="img2/p-2.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="folder open-popup" data-popup="popup3">
+                                        <img src="img2/folder.png" alt="">
+                                    </div>
+                                    <p>기업탐방 (인턴형 / 체험형)</p>
+                                    <div class="popup-overlay" id="popup3">
+                                        <div class="popup">
+                                            <span class="close-btn" id="closePopup">&times;</span>
+                                            <div class="popup-content">
+                                                <img src="img2/p-3.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="folder open-popup" data-popup="popup4">
+                                        <img src="img2/folder.png" alt="">
+                                    </div>
+                                    <p>콘텐츠 제작 교육 및 멘토링</p>
+                                    <div class="popup-overlay" id="popup4">
+                                        <div class="popup">
+                                            <span class="close-btn" id="closePopup">&times;</span>
+                                            <div class="popup-content">
+                                                <img src="img2/p-4.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="folder open-popup" data-popup="popup5">
+                                        <img src="img2/folder.png" alt="">
+                                    </div>
+                                    <p>수기공모전</p>
+                                    <div class="popup-overlay" id="popup5">
+                                        <div class="popup">
+                                            <span class="close-btn" id="closePopup">&times;</span>
+                                            <div class="popup-content">
+                                                <img src="img2/p-5.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="folder open-popup" data-popup="popup6">
+                                        <img src="img2/folder.png" alt="">
+                                    </div>
+                                    <p>성과공유회</p>
+                                    <div class="popup-overlay" id="popup6">
+                                        <div class="popup">
+                                            <span class="close-btn" id="closePopup">&times;</span>
+                                            <div class="popup-content">
+                                                <img src="img2/p-6.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="sec04">
+                    <div class="sec-tit">
+                        <h2>기업탐방 참여기업</h2>
+                    </div>
+                    <div class="cont-wrap">
+                        <div class="cont1">
+                            <div class="cont-left">
+                                <div class="cont-tit">
+                                    <h3>인턴형</h3>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="cont-right">
+                                <div class="r-inner">
+                                    <ul>
+                                        <li>
+                                            <div class="file open-popup" data-popup="popup17">
+                                                <img src="img2/i-1.png" alt="">
+                                            </div>
+                                            <p>서울. 국립중앙의료원</p>
+                                            <div class="popup-overlay" id="popup17">
+                                                <div class="popup">
+                                                    <span class="close-btn" id="closePopup">&times;</span>
+                                                    <div class="popup-content">
+                                                        <img src="img2/sec04_in_p1.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="file open-popup" data-popup="popup18">
+                                                <img src="img2/i-2.png" alt="">
+                                            </div>
+                                            <p>서울. 한국수출입은행</p>
+                                            <div class="popup-overlay" id="popup18">
+                                                <div class="popup">
+                                                    <span class="close-btn" id="closePopup">&times;</span>
+                                                    <div class="popup-content">
+                                                        <img src="img2/sec04_in_p2.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="file open-popup" data-popup="popup19">
+                                                <img src="img2/i-3.png" alt="">
+                                            </div>
+                                            <p>서울. (재)우체국물류지원단</p>
+                                            <div class="popup-overlay" id="popup19">
+                                                <div class="popup">
+                                                    <span class="close-btn" id="closePopup">&times;</span>
+                                                    <div class="popup-content">
+                                                        <img src="img2/sec04_in_p3.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="file open-popup" data-popup="popup20">
+                                                <img src="img2/i-4.png" alt="">
+                                            </div>
+                                            <p>서울. KB국민은행</p>
+                                            <div class="popup-overlay" id="popup20">
+                                                <div class="popup">
+                                                    <span class="close-btn" id="closePopup">&times;</span>
+                                                    <div class="popup-content">
+                                                        <img src="img2/sec04_in_p4.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="file open-popup" data-popup="popup20">
+                                                <img src="img2/i-5.png" alt="">
+                                            </div>
+                                            <p>광주. 국립아시아문화전당재단</p>
+                                            <div class="popup-overlay" id="popup20">
+                                                <div class="popup">
+                                                    <span class="close-btn" id="closePopup">&times;</span>
+                                                    <div class="popup-content">
+                                                        <img src="img2/sec04_in_p5.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cont2">
+                            <div class="cont-left">
+                                <div class="cont-tit">
+                                    <h3>체험형</h3>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="cont-right">
+                                <div class="r-inner">
+                                    <ul>
+                                        <li>
+                                            <div class="file open-popup" data-popup="popup7">
+                                                <img src="img2/e-1.png" alt="">
+                                            </div>
+                                            <p>서울. 한국수출입은행</p>
+                                            <div class="popup-overlay" id="popup7">
+                                                <div class="popup">
+                                                    <span class="close-btn" id="closePopup">&times;</span>
+                                                    <div class="popup-content">
+                                                        <img src="img2/sec04_p1.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="file open-popup" data-popup="popup8">
+                                                <img src="img2/e-2.png" alt="">
+                                            </div>
+                                            <p>서울. (재)우체국물류지원단</p>
+                                            <div class="popup-overlay" id="popup8">
+                                                <div class="popup">
+                                                    <span class="close-btn" id="closePopup">&times;</span>
+                                                    <div class="popup-content">
+                                                        <img src="img2/sec04_p2.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="file open-popup" data-popup="popup9">
+                                                <img src="img2/e-3.png" alt="">
+                                            </div>
+                                            <p>서울. KB국민은행</p>
+                                            <div class="popup-overlay" id="popup9">
+                                                <div class="popup">
+                                                    <span class="close-btn" id="closePopup">&times;</span>
+                                                    <div class="popup-content">
+                                                        <img src="img2/sec04_p3.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="file open-popup" data-popup="popup10">
+                                                <img src="img2/e-4.png" alt="">
+                                            </div>
+                                            <p>인천. 인천국제공항공사</p>
+                                            <div class="popup-overlay" id="popup10">
+                                                <div class="popup">
+                                                    <span class="close-btn" id="closePopup">&times;</span>
+                                                    <div class="popup-content">
+                                                        <img src="img2/sec04_p4.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="file open-popup" data-popup="popup11">
+                                                <img src="img2/e-5.png" alt="">
+                                            </div>
+                                            <p>대전. 한국가스기술공사</p>
+                                            <div class="popup-overlay" id="popup11">
+                                                <div class="popup">
+                                                    <span class="close-btn" id="closePopup">&times;</span>
+                                                    <div class="popup-content">
+                                                        <img src="img2/sec04_p5.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="file open-popup" data-popup="popup12">
+                                                <img src="img2/e-6.png" alt="">
+                                            </div>
+                                            <p>서울. 한국무역보험공사</p>
+                                            <div class="popup-overlay" id="popup12">
+                                                <div class="popup">
+                                                    <span class="close-btn" id="closePopup">&times;</span>
+                                                    <div class="popup-content">
+                                                        <img src="img2/sec04_p6.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="file open-popup" data-popup="popup13">
+                                                <img src="img2/e-7.png" alt="">
+                                            </div>
+                                            <p>경남. 한국산업기술시험원</p>
+                                            <div class="popup-overlay" id="popup13">
+                                                <div class="popup">
+                                                    <span class="close-btn" id="closePopup">&times;</span>
+                                                    <div class="popup-content">
+                                                        <img src="img2/sec04_p7.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="file open-popup" data-popup="popup14">
+                                                <img src="img2/e-8.png" alt="">
+                                            </div>
+                                            <p>울산. 한국산업인력공단</p>
+                                            <div class="popup-overlay" id="popup14">
+                                                <div class="popup">
+                                                    <span class="close-btn" id="closePopup">&times;</span>
+                                                    <div class="popup-content">
+                                                        <img src="img2/sec04_p8.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="file open-popup" data-popup="popup15">
+                                                <img src="img2/e-9.png" alt="">
+                                            </div>
+                                            <p>경기. 한화비전</p>
+                                            <div class="popup-overlay" id="popup15">
+                                                <div class="popup">
+                                                    <span class="close-btn" id="closePopup">&times;</span>
+                                                    <div class="popup-content">
+                                                        <img src="img2/sec04_p9.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="file open-popup" data-popup="popup16">
+                                                <img src="img2/e-10.png" alt="">
+                                            </div>
+                                            <p>서울. 에르메스코리아(유)</p>
+                                            <div class="popup-overlay" id="popup16">
+                                                <div class="popup">
+                                                    <span class="close-btn" id="closePopup">&times;</span>
+                                                    <div class="popup-content">
+                                                        <img src="img2/sec04_p10.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="file open-popup" data-popup="popup16">
+                                                <img src="img2/e-11.png" alt="">
+                                            </div>
+                                            <p>전북. 한국국토정보공사</p>
+                                            <div class="popup-overlay" id="popup16">
+                                                <div class="popup">
+                                                    <span class="close-btn" id="closePopup">&times;</span>
+                                                    <div class="popup-content">
+                                                        <img src="img2/sec04_p11.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="file open-popup" data-popup="popup16">
+                                                <img src="img2/e-12.png" alt="">
+                                            </div>
+                                            <p>대전. 한국특허전략개발원</p>
+                                            <div class="popup-overlay" id="popup16">
+                                                <div class="popup">
+                                                    <span class="close-btn" id="closePopup">&times;</span>
+                                                    <div class="popup-content">
+                                                        <img src="img2/sec04_p12.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="sec05">
+                    <div class="sec-tit">
+                        <h2>지원하기</h2>
+                    </div>
+                    <div class="cont-wrap">
+                        <div class="cont1">
+                            <div class="cont-left">
+                                <div class="cont-tit">
+                                    <h3>지원일정</h3>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="cont-right">
+                                <div class="r-inner">
+                                    <ul>
+                                        <li>
+                                            <div class="cr-tit">
+                                                <p class="logy_b">ㄴ 모집대상</p>
+                                            </div>
+                                            <div class="cr-info">
+                                                <p>대학 재학 또는 졸업한 청년장애인 50명</p>
+                                                <span>*대학 재학 및 졸업 여부 확인 필수</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="cr-tit">
+                                                <p class="logy_b">ㄴ 우대사항</p>
+                                            </div>
+                                            <div class="cr-info">
+                                                <ul>
+                                                    <li>
+                                                        <p>구직 중인 졸업예정자 및 졸업생</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>스텝업탐방캠프 활동을 원활히 수행할 수 있는 자</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>SNS 활동이 활발한 사람</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="cr-tit">
+                                                <p class="logy_b">ㄴ 모집일정</p>
+                                            </div>
+                                            <div class="cr-info">
+                                                <ul>
+                                                    <li>
+                                                        <div class="info-tit">
+                                                            <p>모집 일정</p>
+                                                        </div>
+                                                        <div class="info-date">
+                                                            <p>5. 8(금) ~ 25(월)</p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="info-tit">
+                                                            <p>면접대상자 선정안내</p>
+                                                        </div>
+                                                        <div class="info-date">
+                                                            <p>5. 26(화) 13:00</p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="info-tit">
+                                                            <p>온라인면접</p>
+                                                        </div>
+                                                        <div class="info-date">
+                                                            <p>5. 27(수) ~ 29(금)</p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="info-tit">
+                                                            <p>최종대상자 선정</p>
+                                                        </div>
+                                                        <div class="info-date">
+                                                            <p>6. 1(월)</p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="info-tit">
+                                                            <p>온라인 오리엔테이션</p>
+                                                        </div>
+                                                        <div class="info-date">
+                                                            <p>6. 8(월)</p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="cr-tit">
+                                                <p class="logy_b">ㄴ 참여혜택</p>
+                                            </div>
+                                            <div class="cr-info">
+                                                <ul>
+                                                    <li>
+                                                        <p>활동비 및 취업키트 제공</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>모든 프로그램 참여자 아이패드 제공</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>수기 공모전 우수자 고용노동부 장관상 수상(1명)</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>전체 참여자 한국장애인고용공단 수료증 수여</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>서류 지원자 기프티콘 증정 <em>*일부 조건 충족 시</em></p>
+                                                    </li>
+                                                </ul>
+                                                <div class="regi-btn">
+                                                    <a href="apply.html"
+                                                        class="logy_b">지원하기</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cont2">
+                            <div class="cont-left">
+                                <div class="cont-tit">
+                                    <h3>지원혜택</h3>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="cont-right">
+                                <div class="r-inner">
+                                    <ul>
+                                        <li><img src="img2/c-1.png" alt=""></li>
+                                        <li><img src="img2/c-2.png" alt=""></li>
+                                    </ul>
+                                    <span>*행사 진행 시, 세부 상품은 변경 될 수 있습니다</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="sec06">
+                    <div class="sec-tit">
+                        <h2>프로그램 참여자 후기</h2>
+                    </div>
+                    <div class="sec-cont">
+                        <div class="cont-inner">
+                            <div class="rv-box">
+                                <div class="face-icon">
+                                    <img src="img2/f-1.png" alt="">
+                                </div>
+                                <div class="cont-txt">
+                                    <p>취업 준비를 어떻게 해야할 지 아무런 정보가 없어 갈피를 못 잡고 있던 상황에서 많은 도움이
+                                        되었습니다.</p>
+                                </div>
+                            </div>
+                            <div class="rv-box">
+                                <div class="face-icon">
+                                    <img src="img2/f-2.png" alt="">
+                                </div>
+                                <div class="cont-txt">
+                                    <p>1:1 맞춤 진로탐색컨설팅과 지속적인 관리를 통해 저에게 꼭 맞는 진로를 선택할 수 있었습니다.</p>
+                                </div>
+                            </div>
+                            <div class="rv-box">
+                                <div class="face-icon">
+                                    <img src="img2/f-3.png" alt="">
+                                </div>
+                                <div class="cont-txt">
+                                    <p>취업을 희망하는 기간을 직접 방문하여 채용정보도 얻고 재직자 인터뷰를 통해 해당 기업에 대한
+                                        생생한 이야기를 들을 수 있어 너무나 많은 도움이 되었습니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="sec07">
+                    <div class="sec-tit">
+                        <h2>자주하는 질문</h2>
+                    </div>
+                    <div class="cont-wrap">
+                        <div class="cont1">
+                            <div class="cont-left">
+                                <div class="cont-tit">
+                                    <h3>서류전형</h3>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="cont-right">
+                                <div class="r-inner">
+                                    <ul>
+                                        <li>
+                                            <p>Q. 서류전형에서는 어떤 기준으로 선발되나요?</p>
+                                            <p>A. 보건복지법상 등록장애인이고, 대학 재학 또는 졸업자 요건에만 해당되면
+                                                합격입니다.</p>
+                                        </li>
+                                        <li>
+                                            <p>Q. 주민등록번호까지 꼭 기입해야하나요?</p>
+                                            <p>A. 네. 보건복지법상 등록장애인 여부 확인 등을 위해 필수로
+                                                기입하셔야 합니다.</p>
+                                        </li>
+                                        <li>
+                                            <p>Q. 기업탐방 희망 순위를 모두 기입해야 하나요?</p>
+                                            <p>A. 기업마다 탐방할 수 있는 인원수 제한이 있어 희망하는 기업에 탐방하기
+                                                어려울 수 있으나, 가급적 희망 순위 내 기업탐방을 배정하고자 함이니,
+                                                1~3순위까지 모두 다른 기업을 선택해주세요.</p>
+                                        </li>
+                                        <li>
+                                            <p>Q. 기업탐방지는 서류 제출 후 변경할 수 있나요?</p>
+                                            <p>A. 아니요. 서류 제출 이후부터는 변경이 불가능합니다.</p>
+                                        </li>
+                                        <li>
+                                            <p>Q. 청년장애인 기준 나이가 있을까요?</p>
+                                            <p>A. 재학 중인 장애대학생의 나이가 만 18세부터인 것을 감안하여 만 34세까지 참여를 권장합니다. </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cont2">
+                            <div class="cont-left">
+                                <div class="cont-tit">
+                                    <h3>역량강화캠프</h3>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="cont-right">
+                                <div class="r-inner">
+                                    <ul>
+                                        <li>
+                                            <p>Q. 보호자 동행이 가능한가요?</p>
+                                            <p>A. 다른 참여자와 어울려 1박 2일 캠프활동이 가능해야 하며, 참여자 본인에게만 숙소 및 식사가 제공됩니다.</p>
+                                        </li>
+                                        <li>
+                                            <p>Q. 세부 프로그램은 어떤 것이 있나요?</p>
+                                            <p>A. 공기업 준비를 위한 특강, 공모전 대비를 위한 콘텐츠 특강, MBTI를 관계형성 특강 등이 있습니다.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cont3">
+                            <div class="cont-left">
+                                <div class="cont-tit">
+                                    <h3>기업탐방</h3>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="cont-right">
+                                <div class="r-inner">
+                                    <ul>
+                                        <li>
+                                            <p>Q. 기업탐방일정은 언제 정해지나요?</p>
+                                            <p>A. 인턴형 기업탐방은 7월 1일부터 8월 31일까지 매일 진행되며, 체험형 기업탐방은 7월~ 8월 중 1일 진행됩니다.
+                                                미리 일정을 비워두시기 바라며, 세부일정은 홈페이지를 참고해주시기 바랍니다.</p>
+                                        </li>
+                                        <li>
+                                            <p>Q. 인턴형, 체험형 모두 지원해야 하나요?</p>
+                                            <p>A. 아닙니다. 인턴형은 희망자에 한하여 지원해주시기 바라며, 이와 별도로 체험형은 필수 선택해주셔야 합니다.</p>
+                                        </li>
+                                        <li>
+                                            <p>Q. 인턴형 기업탐방은 일정 조율이 될까요?</p>
+                                            <p>A. 피치 못한 사정으로 결근을 할 경우 본인이 직접 회사와 협의를 통해 조율이 가능하나,
+                                                2개월 모두 완근을 하는 조건으로 선발됨을 알려드립니다.</p>
+                                        </li>
+                                        <li>
+                                            <p>Q. 인턴형 기업탐방은 근로계약을 맺는건가요?</p>
+                                            <p>A. 네. 2개월간 본인과 회사가 근로계약을 정식으로 맺고 인턴으로 근무하는 것입니다.
+                                                이에 따라 해당 근무지를 통해 4대보험이 모두 가입되며, 회사 내규에 따라 월급이 제공됩니다.</p>
+                                        </li>
+                                        <li>
+                                            <p>Q. 체험형 기업탐방은 어떻게 선택되는 것인가요?</p>
+                                            <p>A. 1인 총 2곳 이상을 방문할 수 있으며, 면접 전형 점수, 기업탐방 회사에서 요구하는 조건(관련 전공자 등), 학교 주소지 내 기업 등을 고려하여 배치가 결정됩니다.
+                                                가급적 희망하는 기업으로 탐방할 수 있도록 배치하나 원하지 않는 기업으로 배정될 시 사전에 고지하고 상의가 이뤄집니다.</p>
+                                        </li>
+                                        <li>
+                                            <p>Q. 기업탐방 배치여부는 언제 결정되나요?</p>
+                                            <p>A. 최종 합격자 발표일(6월 1일 17:00 예정)에 안내드립니다.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cont4">
+                            <div class="cont-left">
+                                <div class="cont-tit">
+                                    <h3>기타</h3>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="cont-right">
+                                <div class="r-inner">
+                                    <ul>
+                                        <li>
+                                            <p>Q. 온라인, 오프라인 병행해서 참여가 가능할까요?</p>
+                                            <p>A. 면접, 오리엔테이션은 온라인으로 진행하며, 역량강화캠프, 기업탐방, 성과공유회는 오프라인으로 진행됩니다.
+                                                역량강화캠프, 기업탐방, 성과공유회는 현장 참석을 해주셔야 수료됩니다.</p>
+                                        </li>
+                                        <li>
+                                            <p>Q. 아이패드는 언제 주는 것인가요?</p>
+                                            <p>A. 스텝업탐방캠프 마지막 프로그램인 성과공유회에서 지급할 예정입니다.</p>
+                                        </li>
+                                        <li>
+                                            <p>Q. 스타벅스 기프트콘을 받을 수 있는 기준이 무엇인가요?</p>
+                                            <p>A. 주민등록번호 조회를 통해 보건복지법상 등록된 장애대학생(졸업자 포함)인 것을 확인한 후 배포예정입니다.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="smile">
+                    <h2>SEE YOU SOON GUYS!</h2>
+                    <div><img src="img2/smile.png" alt=""></div>
+                </section>
+            </div>
+        </main>
+        <!-- 팝업창 스크립트 -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const buttons = document.querySelectorAll(".open-popup");
+                const closeButtons = document.querySelectorAll(".close-btn");
+                const popups = document.querySelectorAll(".popup-overlay");
+
+                // 버튼 클릭 시 해당 팝업 열기
+                buttons.forEach(button => {
+                    button.addEventListener("click", function () {
+                        const popupId = this.getAttribute("data-popup");
+                        const popup = document.getElementById(popupId);
+                        if (popup) {
+                            popup.style.display = "flex";
+                            document.body.style.overflow = "hidden"; // body 스크롤 막기
+                        }
+                    });
+                });
+
+                // 닫기 버튼 클릭 시 팝업 닫기
+                closeButtons.forEach(button => {
+                    button.addEventListener("click", function () {
+                        const popup = this.closest(".popup-overlay");
+                        popup.style.display = "none";
+                        document.body.style.overflow = ""; // body 스크롤 복구
+                    });
+                });
+
+                // 팝업 바깥 영역 클릭 시 닫기
+                popups.forEach(popup => {
+                    popup.addEventListener("click", function (e) {
+                        if (e.target === this) {
+                            this.style.display = "none";
+                            document.body.style.overflow = ""; // body 스크롤 복구
+                        }
+                    });
+                });
+            });
+        </script>
+    </div>
+    <footer>
+        <div class="foot-inner">
+            <div class="foot-logo">
+                <h2>STEP-UP 탐방캠프 3기</h2>
+            </div>
+            <div class="foot-info">
+                <ul class="info-top">
+                    <li>
+                        <p>전화</p>
+                        <p>02)3463.5020</p>
+                    </li>
+                    <li>
+                        <p>주소</p>
+                        <p>서울 강남구 테헤란로92길 39 동해빌딩 4층</p>
+                    </li>
+                </ul>
+                <ul class="info-bot">
+                    <li>
+                        <p>메일</p>
+                        <p>office@onandme.com</p>
+                    </li>
+                    <li>
+                        <span>@2026 STEP-UP 탐방캠프 3기</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEP-UP 관리자 페이지</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <div class="admin-wrap">
+        <header class="admin-header">
+            <a href="index2.html" class="back-link">메인으로 돌아가기</a>
+            <h1>STEP-UP 지원서 관리자 페이지</h1>
+            <p>관리자 인증 후 누적 지원 데이터를 엑셀로 다운로드할 수 있습니다.</p>
+        </header>
+
+        <section class="admin-card" id="loginCard">
+            <h2>관리자 로그인</h2>
+            <label for="adminPassword">비밀번호</label>
+            <input type="password" id="adminPassword" placeholder="관리자 비밀번호를 입력하세요">
+            <button type="button" id="loginBtn">확인</button>
+            <p class="message" id="loginMessage"></p>
+        </section>
+
+        <section class="admin-card hidden" id="dashboardCard">
+            <h2>지원 데이터 관리</h2>
+            <p id="recordCount">누적 지원 건수: 0건</p>
+            <div class="actions">
+                <button type="button" id="refreshBtn" class="secondary-btn">새로고침</button>
+                <button type="button" id="downloadBtn">엑셀 다운로드</button>
+            </div>
+            <p class="message" id="dashboardMessage"></p>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script>
+        const loginCard = document.getElementById("loginCard");
+        const dashboardCard = document.getElementById("dashboardCard");
+        const passwordInput = document.getElementById("adminPassword");
+        const loginBtn = document.getElementById("loginBtn");
+        const loginMessage = document.getElementById("loginMessage");
+        const recordCount = document.getElementById("recordCount");
+        const refreshBtn = document.getElementById("refreshBtn");
+        const downloadBtn = document.getElementById("downloadBtn");
+        const dashboardMessage = document.getElementById("dashboardMessage");
+        let adminSessionPassword = "";
+
+        async function fetchApplications() {
+            const response = await fetch("/api/applications", {
+                method: "GET",
+                headers: {
+                    "x-admin-password": adminSessionPassword
+                }
+            });
+
+            if (!response.ok) {
+                if (response.status === 401) {
+                    throw new Error("관리자 인증에 실패했습니다.");
+                }
+                throw new Error("데이터를 불러오지 못했습니다.");
+            }
+
+            return response.json();
+        }
+
+        async function updateCount() {
+            const data = await fetchApplications();
+            recordCount.textContent = "누적 지원 건수: " + String(data.length) + "건";
+            return data;
+        }
+
+        async function openDashboard() {
+            loginCard.classList.add("hidden");
+            dashboardCard.classList.remove("hidden");
+            dashboardMessage.textContent = "";
+            try {
+                await updateCount();
+                return true;
+            } catch (error) {
+                loginCard.classList.remove("hidden");
+                dashboardCard.classList.add("hidden");
+                dashboardMessage.textContent = error.message;
+                return false;
+            }
+        }
+
+        function downloadExcel(data) {
+            if (!Array.isArray(data) || data.length === 0) {
+                dashboardMessage.textContent = "다운로드할 데이터가 없습니다.";
+                return;
+            }
+            const excludedFields = ["개인정보문서파일명", "동의서확인"];
+            const sanitizedData = data.map(item => {
+                const nextItem = {};
+                Object.keys(item).forEach(key => {
+                    if (!excludedFields.includes(key)) {
+                        nextItem[key] = item[key];
+                    }
+                });
+                return nextItem;
+            });
+            const worksheet = XLSX.utils.json_to_sheet(sanitizedData);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, "지원자목록");
+            const fileName = "stepup_지원자데이터_" + new Date().toISOString().slice(0, 10) + ".xlsx";
+            XLSX.writeFile(workbook, fileName);
+            dashboardMessage.textContent = "엑셀 파일 다운로드가 완료되었습니다.";
+        }
+
+        loginBtn.addEventListener("click", async function () {
+            const input = passwordInput.value.trim();
+            if (!input) {
+                loginMessage.textContent = "비밀번호를 입력해주세요.";
+                return;
+            }
+            adminSessionPassword = input;
+            const ok = await openDashboard();
+            if (ok) {
+                loginMessage.textContent = "";
+            } else {
+                adminSessionPassword = "";
+                loginMessage.textContent = "비밀번호가 일치하지 않습니다.";
+            }
+        });
+
+        passwordInput.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                loginBtn.click();
+            }
+        });
+
+        refreshBtn.addEventListener("click", async function () {
+            try {
+                await updateCount();
+                dashboardMessage.textContent = "데이터를 다시 불러왔습니다.";
+            } catch (error) {
+                dashboardMessage.textContent = error.message;
+            }
+        });
+
+        downloadBtn.addEventListener("click", async function () {
+            try {
+                const data = await updateCount();
+                downloadExcel(data);
+            } catch (error) {
+                dashboardMessage.textContent = error.message;
+            }
+        });
+    </script>
+</body>
+
+</html>

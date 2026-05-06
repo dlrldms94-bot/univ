@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1700" viewBox="0 0 1200 1700">
+  <rect width="1200" height="1700" fill="#ffffff"/>
+  <rect x="40" y="40" width="1120" height="1620" rx="24" fill="#f5f9ff" stroke="#081a66" stroke-width="6"/>
+  <text x="600" y="180" text-anchor="middle" font-size="52" font-family="Arial, sans-serif" fill="#081a66" font-weight="700">
+    PRIVACY CONSENT FORM 2
+  </text>
+  <text x="100" y="280" font-size="30" font-family="Arial, sans-serif" fill="#081a66">
+    Provision and Utilization of Personal Information
+  </text>
+  <line x1="100" y1="320" x2="1100" y2="320" stroke="#081a66" stroke-width="3"/>
+  <text x="100" y="390" font-size="26" font-family="Arial, sans-serif" fill="#2e4b74">
+    - This is a placeholder consent image.
+  </text>
+  <text x="100" y="440" font-size="26" font-family="Arial, sans-serif" fill="#2e4b74">
+    - Replace with your official agreement document image if needed.
+  </text>
+  <rect x="100" y="520" width="1000" height="980" fill="#ffffff" stroke="#b3c8e3" stroke-width="2"/>
+  <text x="600" y="1030" text-anchor="middle" font-size="38" font-family="Arial, sans-serif" fill="#7a8eaa">
+    AGREEMENT CONTENT AREA
+  </text>
+</svg>
