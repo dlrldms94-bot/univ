@@ -70,6 +70,35 @@ app.get("/api/applications", async (req, res) => {
     }
 });
 
+app.delete("/api/applications", async (req, res) => {
+    const inputPassword = req.headers["x-admin-password"];
+    if (inputPassword !== ADMIN_PASSWORD) {
+        return res.status(401).json({ message: "관리자 인증 실패" });
+    }
+
+    const ids = Array.isArray(req.body?.ids) ? req.body.ids : [];
+    const normalizedIds = ids
+        .map(id => Number(id))
+        .filter(id => Number.isInteger(id) && id > 0);
+
+    if (normalizedIds.length === 0) {
+        return res.status(400).json({ message: "삭제할 지원서 ID가 없습니다." });
+    }
+
+    try {
+        const { rowCount } = await pool.query(
+            "DELETE FROM applications WHERE id = ANY($1::bigint[])",
+            [normalizedIds]
+        );
+        return res.json({
+            message: "삭제 완료",
+            deletedCount: rowCount || 0
+        });
+    } catch (error) {
+        return res.status(500).json({ message: "데이터 삭제 중 오류가 발생했습니다." });
+    }
+});
+
 initDatabase()
     .then(() => {
         app.listen(PORT, () => {

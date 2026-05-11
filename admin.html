@@ -32,6 +32,28 @@
             <div class="actions">
                 <button type="button" id="refreshBtn" class="secondary-btn">새로고침</button>
                 <button type="button" id="downloadBtn">엑셀 다운로드</button>
+                <button type="button" id="deleteSelectedBtn" class="danger-btn">선택 삭제</button>
+            </div>
+            <div class="list-head">
+                <label class="check-inline">
+                    <input type="checkbox" id="selectAllRows">
+                    전체 선택
+                </label>
+            </div>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>선택</th>
+                            <th>ID</th>
+                            <th>제출일시</th>
+                            <th>성명</th>
+                            <th>연락처</th>
+                            <th>이메일</th>
+                        </tr>
+                    </thead>
+                    <tbody id="applicationRows"></tbody>
+                </table>
             </div>
             <p class="message" id="dashboardMessage"></p>
         </section>
@@ -47,8 +69,13 @@
         const recordCount = document.getElementById("recordCount");
         const refreshBtn = document.getElementById("refreshBtn");
         const downloadBtn = document.getElementById("downloadBtn");
+        const deleteSelectedBtn = document.getElementById("deleteSelectedBtn");
+        const selectAllRows = document.getElementById("selectAllRows");
+        const applicationRows = document.getElementById("applicationRows");
         const dashboardMessage = document.getElementById("dashboardMessage");
+        const isPreviewMode = new URLSearchParams(window.location.search).get("preview") === "1";
         let adminSessionPassword = "";
+        let latestApplications = [];
 
         async function fetchApplications() {
             const response = await fetch("/api/applications", {
@@ -70,8 +97,75 @@
 
         async function updateCount() {
             const data = await fetchApplications();
+            latestApplications = data;
             recordCount.textContent = "누적 지원 건수: " + String(data.length) + "건";
+            renderApplicationRows(data);
             return data;
+        }
+
+        function formatDate(value) {
+            if (!value) {
+                return "-";
+            }
+            const date = new Date(value);
+            if (Number.isNaN(date.getTime())) {
+                return String(value);
+            }
+            return date.toLocaleString("ko-KR");
+        }
+
+        function renderApplicationRows(data) {
+            if (!Array.isArray(data) || data.length === 0) {
+                applicationRows.innerHTML = '<tr><td colspan="6" class="empty-row">지원 데이터가 없습니다.</td></tr>';
+                selectAllRows.checked = false;
+                return;
+            }
+
+            const rowsHtml = data.map(item => {
+                const safeName = item.성명 ?? "";
+                const safePhone = item.연락처 ?? "";
+                const safeEmail = item.이메일 ?? "";
+                return `
+                    <tr>
+                        <td><input type="checkbox" class="row-check" value="${item.id}"></td>
+                        <td>${item.id}</td>
+                        <td>${formatDate(item.serverSavedAt || item.제출일시)}</td>
+                        <td>${safeName}</td>
+                        <td>${safePhone}</td>
+                        <td>${safeEmail}</td>
+                    </tr>
+                `;
+            }).join("");
+
+            applicationRows.innerHTML = rowsHtml;
+            selectAllRows.checked = false;
+        }
+
+        function getSelectedIds() {
+            return Array.from(document.querySelectorAll(".row-check:checked"))
+                .map(input => Number(input.value))
+                .filter(id => Number.isInteger(id) && id > 0);
+        }
+
+        async function deleteSelectedApplications(ids) {
+            const response = await fetch("/api/applications", {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    "x-admin-password": adminSessionPassword
+                },
+                body: JSON.stringify({ ids })
+            });
+
+            if (!response.ok) {
+                if (response.status === 401) {
+                    throw new Error("관리자 인증에 실패했습니다.");
+                }
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(errorData.message || "삭제에 실패했습니다.");
+            }
+
+            return response.json();
         }
 
         async function openDashboard() {
@@ -87,6 +181,34 @@
                 dashboardMessage.textContent = error.message;
                 return false;
             }
+        }
+
+        function openPreviewDashboard() {
+            const previewData = [
+                {
+                    id: 101,
+                    serverSavedAt: new Date().toISOString(),
+                    성명: "홍길동",
+                    연락처: "010-1111-2222",
+                    이메일: "preview1@example.com"
+                },
+                {
+                    id: 102,
+                    serverSavedAt: new Date(Date.now() - 3600 * 1000).toISOString(),
+                    성명: "김철수",
+                    연락처: "010-3333-4444",
+                    이메일: "preview2@example.com"
+                }
+            ];
+            loginCard.classList.add("hidden");
+            dashboardCard.classList.remove("hidden");
+            latestApplications = previewData;
+            recordCount.textContent = "누적 지원 건수: " + String(previewData.length) + "건 (미리보기)";
+            renderApplicationRows(previewData);
+            dashboardMessage.textContent = "미리보기 모드입니다. 실제 삭제/다운로드는 동작하지 않습니다.";
+            [refreshBtn, downloadBtn, deleteSelectedBtn].forEach(button => {
+                button.disabled = true;
+            });
         }
 
         function downloadExcel(data) {
@@ -181,6 +303,51 @@
                 dashboardMessage.textContent = error.message;
             }
         });
+
+        selectAllRows.addEventListener("change", function () {
+            const checks = document.querySelectorAll(".row-check");
+            checks.forEach(check => {
+                check.checked = this.checked;
+            });
+        });
+
+        applicationRows.addEventListener("change", function (event) {
+            if (!event.target.classList.contains("row-check")) {
+                return;
+            }
+            const checks = Array.from(document.querySelectorAll(".row-check"));
+            if (checks.length === 0) {
+                selectAllRows.checked = false;
+                return;
+            }
+            selectAllRows.checked = checks.every(check => check.checked);
+        });
+
+        deleteSelectedBtn.addEventListener("click", async function () {
+            const selectedIds = getSelectedIds();
+            if (selectedIds.length === 0) {
+                dashboardMessage.textContent = "삭제할 지원서를 먼저 선택해주세요.";
+                return;
+            }
+
+            const ok = window.confirm("선택한 지원서 " + String(selectedIds.length) + "건을 삭제할까요?");
+            if (!ok) {
+                return;
+            }
+
+            try {
+                const result = await deleteSelectedApplications(selectedIds);
+                await updateCount();
+                const deletedCount = result?.deletedCount ?? selectedIds.length;
+                dashboardMessage.textContent = String(deletedCount) + "건 삭제되었습니다.";
+            } catch (error) {
+                dashboardMessage.textContent = error.message;
+            }
+        });
+
+        if (isPreviewMode) {
+            openPreviewDashboard();
+        }
     </script>
 </body>
 

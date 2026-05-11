@@ -77,11 +77,70 @@ button {
 .actions {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .secondary-btn {
     background: #fff;
     color: #081a66;
+}
+
+.danger-btn {
+    background: #d90429;
+    border-color: #d90429;
+}
+
+.list-head {
+    margin-top: 14px;
+}
+
+.check-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+}
+
+.check-inline input {
+    margin: 0;
+}
+
+.table-wrap {
+    margin-top: 10px;
+    overflow-x: auto;
+    border: 2px solid #081a66;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+}
+
+.data-table th,
+.data-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #d8def8;
+    text-align: left;
+    font-size: 14px;
+}
+
+.data-table th {
+    background: #f3f6ff;
+    font-weight: 700;
+}
+
+.data-table td:first-child,
+.data-table th:first-child {
+    width: 70px;
+    text-align: center;
+}
+
+.empty-row {
+    text-align: center !important;
+    color: #5f6894;
 }
 
 .message {
