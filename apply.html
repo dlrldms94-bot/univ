@@ -303,6 +303,7 @@
         const internFirst = document.getElementById("internFirst");
         const internSecond = document.getElementById("internSecond");
         let currentStep = 1;
+        let isSubmitting = false;
 
         const experienceCompanies = [
             "(서울) 한국무역보험공사",
@@ -525,6 +526,12 @@
             }
         }
 
+        function setSubmittingState(submitting) {
+            isSubmitting = submitting;
+            submitBtn.disabled = submitting;
+            submitBtn.textContent = submitting ? "제출 중..." : "제출하기";
+        }
+
         document.querySelectorAll("input[name='internPreference']").forEach(input => {
             input.addEventListener("change", function () {
                 if (!this.checked) {
@@ -576,12 +583,16 @@
 
         form.addEventListener("submit", async function (event) {
             event.preventDefault();
+            if (isSubmitting) {
+                return;
+            }
             const error = validateCurrentStep(currentStep);
             if (error) {
                 errorMessage.textContent = error;
                 return;
             }
 
+            setSubmittingState(true);
             try {
                 const submission = buildSubmissionData();
                 await saveSubmissionToServer(submission);
@@ -592,6 +603,8 @@
                 updateStepUI();
             } catch (submitError) {
                 errorMessage.textContent = submitError.message;
+            } finally {
+                setSubmittingState(false);
             }
         });
 

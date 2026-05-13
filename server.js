@@ -18,13 +18,75 @@ const pool = new Pool({
 app.use(express.json({ limit: "2mb" }));
 app.use(express.static(__dirname));
 
+function normalizePhone(value) {
+    return String(value || "").replace(/\D/g, "");
+}
+
+function normalizeEmail(value) {
+    return String(value || "").trim().toLowerCase();
+}
+
+function normalizeName(value) {
+    return String(value || "").trim();
+}
+
 async function initDatabase() {
     await pool.query(`
         CREATE TABLE IF NOT EXISTS applications (
             id BIGSERIAL PRIMARY KEY,
             payload JSONB NOT NULL,
+            applicant_name TEXT,
+            applicant_phone TEXT,
+            applicant_email TEXT,
             created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
         )
+    `);
+
+    await pool.query(`
+        ALTER TABLE applications
+        ADD COLUMN IF NOT EXISTS applicant_name TEXT
+    `);
+    await pool.query(`
+        ALTER TABLE applications
+        ADD COLUMN IF NOT EXISTS applicant_phone TEXT
+    `);
+    await pool.query(`
+        ALTER TABLE applications
+        ADD COLUMN IF NOT EXISTS applicant_email TEXT
+    `);
+
+    await pool.query(`
+        UPDATE applications
+        SET
+            applicant_name = BTRIM(COALESCE(payload->>'성명', '')),
+            applicant_phone = REGEXP_REPLACE(COALESCE(payload->>'연락처', ''), '\\D', '', 'g'),
+            applicant_email = LOWER(BTRIM(COALESCE(payload->>'이메일', '')))
+        WHERE
+            applicant_name IS NULL
+            OR applicant_phone IS NULL
+            OR applicant_email IS NULL
+    `);
+
+    await pool.query(`
+        WITH ranked AS (
+            SELECT
+                id,
+                ROW_NUMBER() OVER (
+                    PARTITION BY applicant_phone, applicant_email
+                    ORDER BY id DESC
+                ) AS rn
+            FROM applications
+            WHERE applicant_phone <> '' AND applicant_email <> ''
+        )
+        DELETE FROM applications a
+        USING ranked r
+        WHERE a.id = r.id
+          AND r.rn > 1
+    `);
+
+    await pool.query(`
+        CREATE UNIQUE INDEX IF NOT EXISTS applications_phone_email_unique_idx
+        ON applications (applicant_phone, applicant_email)
     `);
 }
 
@@ -38,11 +100,29 @@ app.post("/api/applications", async (req, res) => {
         return res.status(400).json({ message: "필수 값이 누락되었습니다." });
     }
 
+    const applicantName = normalizeName(payload.성명);
+    const applicantPhone = normalizePhone(payload.연락처);
+    const applicantEmail = normalizeEmail(payload.이메일);
+
+    if (!applicantName || !applicantPhone || !applicantEmail) {
+        return res.status(400).json({ message: "필수 값이 누락되었습니다." });
+    }
+
     try {
-        await pool.query(
-            "INSERT INTO applications(payload) VALUES($1::jsonb)",
-            [JSON.stringify(payload)]
+        const result = await pool.query(
+            `
+            INSERT INTO applications(payload, applicant_name, applicant_phone, applicant_email)
+            VALUES($1::jsonb, $2, $3, $4)
+            ON CONFLICT (applicant_phone, applicant_email) DO NOTHING
+            RETURNING id
+            `,
+            [JSON.stringify(payload), applicantName, applicantPhone, applicantEmail]
         );
+        if (!result.rows[0]) {
+            return res.status(409).json({
+                message: "이미 동일한 연락처/이메일로 제출된 지원서가 있습니다."
+            });
+        }
         return res.status(201).json({ message: "저장 완료" });
     } catch (error) {
         return res.status(500).json({ message: "서버 저장 중 오류가 발생했습니다." });
