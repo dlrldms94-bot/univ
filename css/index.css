@@ -512,6 +512,19 @@ header .h-right>span {
 
 /* sec04 */
 
+.sec04 .sec-tit {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4em 1em;
+}
+
+.sec04 .sec-tit-note {
+    font-size: clamp(14px, 1.2vw, 20px);
+    font-weight: 400;
+    color: #081a66;
+}
+
 .sec04 .cont-right ul {
     display: flex;
     align-items: flex-start;
